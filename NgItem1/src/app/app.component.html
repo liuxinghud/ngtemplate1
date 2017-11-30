@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
   </h1>
@@ -19,4 +19,13 @@
 <button (click)="changelanguage('CN')">中</button>
 
 <button (click)="changelanguage('EN')">EN</button>
-<button (click)="changelanguage('Other')">Other</button>
+<button (click)="changelanguage('Other')">Other</button> -->
+<div class="container">
+<div class="row">
+  <div class="col-xs-4">左边</div>
+  <div class="col-xs-4">中间</div>
+  <div class="col-xs-4">右边</div>
+</div>
+</div>
+<router-outlet></router-outlet>
+<router-outlet name="popup"></router-outlet>
