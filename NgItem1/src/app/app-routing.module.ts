@@ -2,8 +2,9 @@ import { NgModule }     from '@angular/core';
 import {
   RouterModule, Routes, PreloadAllModules,
 } from '@angular/router';
-import { AuthGuard } from './auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CurrentUser } from './models/current-user';
+import { AuthGuard } from './auth-guard.service';
 
 
 
@@ -11,12 +12,12 @@ const appRoutes: Routes = [
   {
     path: 'Admin',
     loadChildren: './admin/admin.module#AdminModule',
-  // canLoad: [AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'Parent',
     loadChildren: './guardians/guardians.module#GuardiansModule',
-   // canLoad: [AuthGuard]
+    canActivate:[AuthGuard]
   },
   { path: '',   redirectTo: '/Admin', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
@@ -34,6 +35,8 @@ const appRoutes: Routes = [
     RouterModule
   ],
   providers: [
+    CurrentUser, 
+    AuthGuard,
  // CanDeactivateGuard
   ]
 })

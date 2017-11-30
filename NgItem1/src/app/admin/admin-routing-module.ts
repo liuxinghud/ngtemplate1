@@ -4,12 +4,14 @@ import { MembershipComponent } from "./membership/membership.component";
 import { UserListComponent } from "./membership/user-list/user-list.component";
 import { EditUserComponent } from "./membership/edit-user/edit-user.component";
 import { CreateUserComponent } from "./membership/create-user/create-user.component";
+import { AuthGuard } from "../auth-guard.service";
 
 
 const adminRoutes: Routes = [
   {
     path: '',
     component: MembershipComponent,
+    canActivateChild:[AuthGuard],
     children: [
       {
         path: 'UserList',
@@ -41,7 +43,7 @@ const adminRoutes: Routes = [
     RouterModule
   ],
   providers: [
-
+    
   ]
 })
 
